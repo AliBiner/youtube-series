@@ -19,17 +19,6 @@ package com.jd.ders5;
     13. If your variable stores a constant value, such as static final int NUM_GEARS = 6, the convention changes slightly, capitalizing every letter and separating subsequent words with the underscore character. By convention, the underscore character is never used elsewhere.
 */
 
-
-
-
-
-
-
-
-
-
-
-
 public class Main {
 
     //Constant variable
