@@ -26,7 +26,7 @@ public class Main {
 
         karakter = 'b';
 
-        karakter = 'c';
+        //karakter = 'c';
 
         System.out.println(result);
 
