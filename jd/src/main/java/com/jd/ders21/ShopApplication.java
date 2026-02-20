@@ -23,22 +23,24 @@ public class ShopApplication {
 
     public void run(){ //instance method
         
-        String[] productNames = getProductNames();
-        double[] pricePerUnit = getPricePerUnit();
-        int[] units = getUnitSize(productNames);
+        // String[] productNames = getProductNames();
+        // double[] pricePerUnit = getPricePerUnit();
+        Product[] products = getProducts();
 
-        double totalPrice = calculateTotalPrice(pricePerUnit, units);
+        int[] units = getUnitSize(products);
+
+        double totalPrice = calculateTotalPrice(products, units);
 
         System.out.println("Toplam Tutar: " + totalPrice);
     }
 
-    public int[] getUnitSize(String[] productNames){
+    public int[] getUnitSize(Product[] products){
 
         Scanner scanner = new Scanner(System.in);
-        int[] units = new int[productSize]; //integer için default değer 0 {0,1,0,2,3}
+        int[] units = new int[products.length]; //integer için default değer 0 {0,1,0,2,3}
 
         for(int i = 0; i<units.length; i++){
-            System.out.print(productNames[i] + " Kaç Adet? : ");
+            System.out.print(products[i].name + " Kaç Adet? : ");
             int tmp = scanner.nextInt(); //-10
             if(tmp < 0){
                 System.out.println("Eksi değer giremezsiniz!");
@@ -50,36 +52,67 @@ public class ShopApplication {
         return units;
     }
 
-    public double calculateTotalPrice(double[] pricePerUnit, int[] units){
+    public double calculateTotalPrice(Product[] products, int[] units){
         double totalPrice = 0;
         for(int i = 0; i<units.length; i++){ 
-            totalPrice = totalPrice + (pricePerUnit[i] * units[i]); 
+            totalPrice = totalPrice + (products[i].pricePerUnit * units[i]); 
         }
         return totalPrice;
     }
 
-    public String[] getProductNames(){
-        String[] productNames = new String[productSize]; 
-        productNames[0] = "Çikolata";
-        productNames[1] = "Kola";
-        productNames[2] = "Cips";
-        productNames[3] = "Dondurma";
-        productNames[4] = "Bulgur(1 Kg)";
+    // public String[] getProductNames(){
+    //     String[] productNames = new String[productSize]; 
+    //     productNames[0] = "Çikolata"; // new String("Çikolata");
+    //     productNames[1] = "Kola";
+    //     productNames[2] = "Cips";
+    //     productNames[3] = "Dondurma";
+    //     productNames[4] = "Bulgur(1 Kg)";
         
-        return productNames;
+    //     return productNames;
 
+    // }
+
+    // public double[] getPricePerUnit(){
+    //     double[] pricePerUnit = new double[productSize]; 
+    //     pricePerUnit[0] = 12.60;
+    //     pricePerUnit[1] = 40.00;
+    //     pricePerUnit[2] = 33.00;
+    //     pricePerUnit[3] = 20.00;
+    //     pricePerUnit[4] = 10.00;
+
+    //     return pricePerUnit;
+    // }
+
+    public Product[] getProducts(){
+        // Product cikolata = new Product();
+        // cikolata.name = "Çikolata";
+        // cikolata.pricePerUnit = 12.60;
+
+        Product[] products = new Product[productSize];
+
+        products[0] = new Product();
+        products[0].name = "Çikolata";
+        products[0].pricePerUnit = 12.60;
+
+        products[1] = new Product();
+        products[1].name = "Kola";
+        products[1].pricePerUnit = 40.00;
+
+        products[2] = new Product();
+        products[2].name = "Cips";
+        products[2].pricePerUnit = 33.00;
+
+        products[3] = new Product();
+        products[3].name = "Dondurma";
+        products[3].pricePerUnit = 20.00;
+
+        products[4] = new Product();
+        products[4].name = "Bulgur(1 Kg)";
+        products[4].pricePerUnit = 10.00;
+
+        return products;
     }
 
-    public double[] getPricePerUnit(){
-        double[] pricePerUnit = new double[productSize]; 
-        pricePerUnit[0] = 12.60;
-        pricePerUnit[1] = 40.00;
-        pricePerUnit[2] = 33.00;
-        pricePerUnit[3] = 20.00;
-        pricePerUnit[4] = 10.00;
-
-        return pricePerUnit;
-    }
 
 
 }
