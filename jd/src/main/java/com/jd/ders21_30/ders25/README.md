@@ -22,7 +22,7 @@ method'lar:
 Koşullar (Ana İş Kuralları):
 
 - accountNumber: her obje için bir kez atanacak ve değiştirelemeyecek. (Sistem tarafından rastgele şekilde atanacak.)
-- ownerName: her objenin bir adı olmalı. Null veya Blank olamaz. En az 3 karakter olmalı.
+- ownerName: her objenin bir adı olmalı. Null veya Blank olamaz. En az 3 karakter olmalı. Güncelllenemez!
 - balance: eksi bakiye olamaz. her objede balance değeri 0 tl ile başlamalı.
 - isActive: hesapların aktifliğini takip etmek için eklenen bir alan. Her obje ilk oluştuğunda hesaplar aktif olmalı.
 
