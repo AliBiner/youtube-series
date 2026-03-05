@@ -11,48 +11,67 @@ public class Account {
 
     //Constructor Method
     public Account(String ownerName){
-        if(ownerName == null)
-            System.out.println("Hesap Sahip Adı Null olamaz!");
-        else if(ownerName.length()<3)
-            System.out.println("Hesap Sahip Adı 3 krakterden az olamaz!");
-        else
-            this.ownerName = ownerName;
-
+        setOwnerName(ownerName);
         this.number = UUID.randomUUID().toString();
         this.balance = 0.00;
         this.isActive = true;
     }
 
+    //getters
     public String getNumber() {
         return number;
     }
 
-    public void setNumber(String number) {
-        this.number = number;
+    public void setOwnerName(String ownerName){
+        if(ownerName == null)
+            System.out.println("Hesap Sahip Adı Null olamaz!");
+        else if(ownerName.length()<6)
+            System.out.println("Hesap Sahip Adı 6 krakterden az olamaz!");
+        else
+            this.ownerName = ownerName;
     }
 
     public String getOwnerName() {
         return ownerName;
     }
 
-    public void setOwnerName(String ownerName) {
-        this.ownerName = ownerName;
-    }
-
     public double getBalance() {
         return balance;
-    }
-
-    public void setBalance(double balance) {
-        this.balance = balance;
     }
 
     public boolean isIsActive() {
         return isActive;
     }
 
-    public void setIsActive(boolean isActive) {
-        this.isActive = isActive;
+    //domain logic methods
+    public void depositByAmount(double amount){
+        if(isActive == false){
+            System.out.println("Hesap Kapalı!");
+        }
+        else if(amount<0){
+            System.out.println("Miktar pozitif olmalı!");
+        }else{
+            this.balance = this.balance + amount;
+            System.out.println(amount + " TL yatırıldı. Güncel Bakiye: " + this.balance);
+        }
+    }
+
+    public void withdrawByAmount(double amount){
+        if(isActive == false){
+            System.out.println("Hesap Kapalı!");
+        }
+        else if(amount<0){
+            System.out.println("Miktar pozitif olmalı!");
+        }else if(amount > this.balance){
+            System.out.println("Yetersiz bakiye!");
+        }else{
+            this.balance = this.balance - amount;
+            System.out.println(amount + " TL çekildi. Güncel Bakiye: " + this.balance);
+        }
+    }
+
+    public void closeAccount(){
+        this.isActive = false;
     }
 
 
