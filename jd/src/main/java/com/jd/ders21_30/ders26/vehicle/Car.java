@@ -8,6 +8,26 @@ public class Car extends MotorizedVehicle  {
         super(brand, model, rentalPrice, engineCC, fuelType);
     }
     
+    
+
+    @Override
+    public String getInfo() {
+        return "Car { brand: " + this.getBrand() + " model: " + this.getModel() + " rentalPrice: "
+                + this.getRentalPrice() + " engineCC: " + this.getEngineCC() + " fuelType: " + this.getFuelType();
+    }
+
+    
+
+    @Override
+    public double calculateCost(int days) {
+        if (this.numDoors<=0) {
+            return super.calculateCost(days);
+        }else{
+            return days * this.getRentalPrice() * this.numDoors;
+        }
+    }
+
+
 
     public int getNumDoors() {
         return numDoors;

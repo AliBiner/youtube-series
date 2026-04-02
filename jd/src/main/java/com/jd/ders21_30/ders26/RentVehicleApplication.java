@@ -12,8 +12,8 @@ public class RentVehicleApplication {
         System.out.println(vehicleInfo);
         System.out.println("Kiralama Bedeli:" + vehicle.calculateCost(7));
         System.out.println("----------------------");
-        
-        MotorizedVehicle motorizedVehicle = new MotorizedVehicle("BMW", "İ7", 2000,1400,"Benzin");
+
+        MotorizedVehicle motorizedVehicle = new MotorizedVehicle("BMW", "İ7", 2000, 1400, "Benzin");
 
         String motorizedInfo = motorizedVehicle.getInfo();
         System.out.println(motorizedInfo);
@@ -27,6 +27,15 @@ public class RentVehicleApplication {
         System.out.println(carInfo);
         car.refuel();
         System.out.println("Kiralama Bedeli: " + car.calculateCost(7));
+        System.out.println("----------------------");
+
+
+        Car car2 = new Car("Volvo", "", 5000, 1000, "Dizel");
+        car2.setNumDoors(5);
+        String carInfo2 = car2.getInfo();
+        System.out.println(carInfo2);
+        car2.refuel();
+        System.out.println("Kiralama Bedeli: " + car2.calculateCost(7));
         System.out.println("----------------------");
 
     }

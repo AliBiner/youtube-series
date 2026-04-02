@@ -11,6 +11,14 @@ public class MotorizedVehicle extends Vehicle {
         this.fuelType = fuelType;
     }
 
+    
+
+    @Override
+    public String getInfo() {
+        return "Motorized Vehicle { brand: " + this.getBrand() + " model: " + this.getModel() + " rentalPrice: " + this.getRentalPrice() + " engineCC: " + this.engineCC + " fuelType: " + this.fuelType;
+    }
+
+
 
     public void refuel(){
         System.out.println("Refuel is compelete");
