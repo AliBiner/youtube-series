@@ -23,6 +23,7 @@ public class BankaUygulamasi {
             int secim = scanner.nextInt();
             switch (secim) {
                 case 1:
+                    
                     System.out.println("Hangi kullanıcıdan para çekilecek: ");
                     int index = scanner.nextInt();
                     System.out.println("Çekilecek Miktarı Giriniz: ");
