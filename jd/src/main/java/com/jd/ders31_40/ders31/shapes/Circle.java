@@ -1,17 +1,14 @@
 package com.jd.ders31_40.ders31.shapes;
 
-public class Circle extends Shape {
-
-    private double radius;
+public class Circle extends RoundShape {
 
     public Circle(String color, double radius) {
-        super(color);
-        this.radius = radius;
+        super(color, radius);
     }
 
     @Override
     public double calculateArea() {
-        return Math.PI * Math.sqrt(radius);
+        return Math.PI * (this.getRadius() * this.getRadius());
     }
 
 }
